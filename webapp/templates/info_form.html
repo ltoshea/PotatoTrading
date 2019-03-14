@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+         <p>
+            {{ form.type_of_potato.label }}<br>
+            {{ form.type_pf_potato(size=32) }}
+        </p>
+        <p>
+            {{ form.fee.label }}<br>
+            {{ form.fee(size=12) }}
+        </p>
+        <p>
+            {{ form.broker.label }}<br>
+            {{ form.broker(size=32) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
