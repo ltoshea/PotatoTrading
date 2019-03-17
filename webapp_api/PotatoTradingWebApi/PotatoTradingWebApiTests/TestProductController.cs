@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PotatoTradingWebApi.Controllers;
 using PotatoTradingWebApi.Models;
 using Xunit;
 
@@ -10,6 +11,8 @@ namespace PotatoTradingWebApi.Tests
         [Fact]
         public void Test1()
         {
+            var testProducts = GetTestProducts();
+            var controller = new ProductController();
 
         }
 

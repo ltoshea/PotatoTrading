@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using PotatoTradingWebApi.DataAccess;
 using PotatoTradingWebApi.Models;
 
 
@@ -33,10 +34,12 @@ namespace PotatoTradingWebApi
             // Use SQL Database if in Azure, otherwise, use SQLite
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
                 services.AddDbContext<PotatoContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("TradingDatabase")));
+                    options.UseSqlServer(Configuration.GetConnectionString("PotatoDatabase")));
             else
                 services.AddDbContext<PotatoContext>(options =>
                     options.UseSqlite("Data Source=localdatabase.db"));
+
+            services.AddTransient<IDataLayer, DataLayer>();
 
             // Automatically perform database migration
             services.BuildServiceProvider().GetService<PotatoContext>().Database.Migrate();

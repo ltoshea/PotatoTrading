@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PotatoTradingWebApi.DataAccess;
 using PotatoTradingWebApi.Models;
 
 namespace PotatoTradingWebApi.Controllers
@@ -15,10 +16,13 @@ namespace PotatoTradingWebApi.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ILogger _logger;
+        private readonly IDataLayer _dataLayer;
 
-        public ProductController(ILogger<ProductController> logger)
+        public ProductController(ILogger<ProductController> logger, IDataLayer dataLayer)
         {
             _logger = logger;
+            _dataLayer = dataLayer;
+
         }
 
         // GET api/product
@@ -32,6 +36,15 @@ namespace PotatoTradingWebApi.Controllers
 
             };
             return result;
+        }
+
+        // GET api/product/fromdb
+        [HttpGet]
+        [Route("fromdb")]
+        public ActionResult<IEnumerable<Product>> GetFromDb()
+        {
+            var result = _dataLayer.GetProducts();
+            return result.ToList();
         }
     }
 }
