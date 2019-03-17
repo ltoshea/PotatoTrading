@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PotatoTradingWebApi.Models
 {
-    public class Potato
+    public class Product
     {
-        public int ProductId;
-        public string VarietyName;
-        public string Country;
-        public string ShapeOfTuber;
-        public string ColourOfSkin;
-        public string ColourOfFlesh;
-        public string DepthOfEyes;
-        public string SmoothnessOfSkin;
-        public string ColourOfBaseOfLightsprout;
-        public string Maturity;
-        public string HeightOfPlants;
-        public string FrequencyOfBerries;
+        [Key]
+        public int ProductId { get; set; }
+        public string VarietyName { get; set; }
+        public string Country { get; set; }
+        public string ShapeOfTuber { get; set; }
+        public string ColourOfSkin { get; set; }
+        public string ColourOfFlesh { get; set; }
+        public string DepthOfEyes { get; set; }
+        public string SmoothnessOfSkin { get; set; }
+        public string ColourOfBaseOfLightsprout { get; set; }
+        public string Maturity { get; set; }
+        public string HeightOfPlants { get; set; }
+        public string FrequencyOfBerries { get; set; }
     }
 }
