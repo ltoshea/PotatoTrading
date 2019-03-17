@@ -18,7 +18,7 @@ namespace PotatoTradingWebApi.DataAccess
 
         public IEnumerable<Product> GetProducts()
         {
-            var query = from p in _db.Products
+            var query = from p in _db.Product
                 orderby p.ProductId
                 select p;
             Console.WriteLine(query);

@@ -8,15 +8,11 @@ namespace PotatoTradingWebApi.Models
 {
     public class PotatoContext: DbContext
     {
-        public PotatoContext()
-        {
-        }
-
         public PotatoContext(DbContextOptions<PotatoContext> options)
             : base(options)
         { }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<StorageCompany> StorageCompanies{ get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<StorageCompany> StorageCompany{ get; set; }
     }
 }
