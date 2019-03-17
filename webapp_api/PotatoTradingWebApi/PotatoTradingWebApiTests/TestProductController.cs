@@ -12,7 +12,7 @@ namespace PotatoTradingWebApi.Tests
         public void Test1()
         {
             var testProducts = GetTestProducts();
-            var controller = new ProductController();
+            //var controller = new ProductController();
 
         }
 

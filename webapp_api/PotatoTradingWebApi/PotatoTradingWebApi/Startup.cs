@@ -31,13 +31,8 @@ namespace PotatoTradingWebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
-            // Use SQL Database if in Azure, otherwise, use SQLite
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-                services.AddDbContext<PotatoContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("PotatoDatabase")));
-            else
-                services.AddDbContext<PotatoContext>(options =>
-                    options.UseSqlite("Data Source=localdatabase.db"));
+            services.AddDbContext<PotatoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("PotatoDatabase")));
 
             services.AddTransient<IDataLayer, DataLayer>();
 
