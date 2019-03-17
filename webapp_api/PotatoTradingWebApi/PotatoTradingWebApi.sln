@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotatoTradingWebApi", "PotatoTradingWebApi\PotatoTradingWebApi.csproj", "{F9BF6CD7-4A02-4ECF-8CBB-C0FA6C48407B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotatoTradingWebApiTests", "PotatoTradingWebApiTests\PotatoTradingWebApiTests.csproj", "{FDD7C613-4202-4C82-8747-F39E478FA8B5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9BF6CD7-4A02-4ECF-8CBB-C0FA6C48407B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9BF6CD7-4A02-4ECF-8CBB-C0FA6C48407B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9BF6CD7-4A02-4ECF-8CBB-C0FA6C48407B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9BF6CD7-4A02-4ECF-8CBB-C0FA6C48407B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDD7C613-4202-4C82-8747-F39E478FA8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDD7C613-4202-4C82-8747-F39E478FA8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDD7C613-4202-4C82-8747-F39E478FA8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDD7C613-4202-4C82-8747-F39E478FA8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2304FF0-A032-46AF-ABD8-325AAF868829}
+	EndGlobalSection
+EndGlobal
