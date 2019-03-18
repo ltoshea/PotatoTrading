@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,6 +37,23 @@ namespace PotatoTradingWebApi
 
             services.AddTransient<IDataLayer, DataLayer>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            });
+
+            services.Configure<MvcOptions>(options =>
+            {
+                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowAll"));
+            });
+
             // Automatically perform database migration
             services.BuildServiceProvider().GetService<PotatoContext>().Database.Migrate();
         }
@@ -54,6 +72,8 @@ namespace PotatoTradingWebApi
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

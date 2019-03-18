@@ -25,26 +25,56 @@ namespace PotatoTradingWebApi.Controllers
 
         }
 
-        // GET api/product
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> Get()
-        {
-            var result = new List<Product>
-            {
-                new Product {ProductId = 1, VarietyName = "Accent"},
-                new Product {ProductId = 2, VarietyName = "Accord"},
-
-            };
-            return result;
-        }
-
-        // GET api/product/fromdb
-        [HttpGet]
-        [Route("fromdb")]
-        public ActionResult<IEnumerable<Product>> GetFromDb()
+        public ActionResult<IEnumerable<Product>> GetProduct()
         {
             var result = _dataLayer.GetProducts();
             return result.ToList();
         }
+
+
+        [HttpGet]
+        [Route("names")]
+        public ActionResult<IEnumerable<String>> GetProductNames()
+        {
+            var result = _dataLayer.GetProductNames();
+            return result.ToList();
+        }
+
+        [HttpGet]
+        [Route("storage")]
+        public ActionResult<IEnumerable<StorageCompany>> GetStorageCompany()
+        {
+            var result = _dataLayer.GetStorageCompanies();
+  
+            return result.ToList();
+        }
+
+        [HttpPost]
+        [Route("newprice")]
+        public ActionResult<int> SetNewPrice(FormInfo formInfo)
+        {
+            var result = _dataLayer.SetNewPrice(formInfo);
+            return result;
+        }
+
+        //    // POST api/values
+        //    [HttpPost]
+        //    public void Post([FromBody] string value)
+        //    {
+        //    }
+
+        //    // PUT api/values/5
+        //    [HttpPut("{id}")]
+        //    public void Put(int id, [FromBody] string value)
+        //    {
+        //    }
+
+        //    // DELETE api/values/5
+        //    [HttpDelete("{id}")]
+        //    public void Delete(int id)
+        //    {
+        //    }
+        //}
     }
 }
