@@ -7,6 +7,7 @@ import parse from 'autosuggest-highlight/parse';
 import { Select } from "@material-ui/core";
 import PotatoSelect from './potato-select.js'
 import CompanySelect from "./company-select.js";
+import axios from "axios";
 
 export const Form = props => {
     const {
@@ -30,9 +31,20 @@ export const Form = props => {
     return (
         <form
             onSubmit={() => {
-                console.log(props.values.variety.value);
-                console.log(props.values.company.value);
-                console.log(props.values.fee);
+                axios.post('https://localhost:44339/api/product/newprice', {
+                    variety: props.values.variety.value,
+                    storageCompany: props.values.company.value,
+                    fee: props.values.fee
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+                // console.log(props.values.variety.value);
+                // console.log(props.values.company.value);
+                // console.log(props.values.fee);
             }}
         >
             {/* <AutoSuggestPotato /> */}

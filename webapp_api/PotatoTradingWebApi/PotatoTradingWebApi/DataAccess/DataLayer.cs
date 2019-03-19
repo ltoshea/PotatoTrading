@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Xml.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -71,7 +72,10 @@ namespace PotatoTradingWebApi.DataAccess
 
             _logger.LogInformation("Saving Product Info from form");
             var query = _db.Database.ExecuteSqlCommand("Exec dbo.SaveNewPrices 	@variety, @fee, @broker",
-                varietyParam, feeParam, brokerParam);
+                new SqlParameter("variety", varietyParam),
+                new SqlParameter("fee", feeParam),
+                new SqlParameter("broker", brokerParam)
+            );
             return query;
         }
     }
