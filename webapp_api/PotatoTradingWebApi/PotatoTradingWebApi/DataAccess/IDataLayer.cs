@@ -8,7 +8,8 @@ namespace PotatoTradingWebApi.DataAccess
     {
         IEnumerable<Product> GetProducts();
         IEnumerable<String> GetProductNames();
-        IEnumerable<StorageCompany> GetStorageCompanies();
+        IEnumerable<String> GetStorageCompanies();
+        //IEnumerable<StorageCompany> GetStorageCompanies();
         int SetNewPrice(FormInfo forminfo);
 
     }

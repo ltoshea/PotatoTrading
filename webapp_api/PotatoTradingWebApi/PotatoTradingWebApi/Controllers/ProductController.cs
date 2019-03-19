@@ -43,12 +43,22 @@ namespace PotatoTradingWebApi.Controllers
 
         [HttpGet]
         [Route("storage")]
-        public ActionResult<IEnumerable<StorageCompany>> GetStorageCompany()
+        public ActionResult<IEnumerable<String>> GetStorageCompany()
         {
             var result = _dataLayer.GetStorageCompanies();
-  
+
             return result.ToList();
         }
+
+
+        //[HttpGet]
+        //[Route("storage")]
+        //public ActionResult<IEnumerable<StorageCompany>> GetStorageCompany()
+        //{
+        //    var result = _dataLayer.GetStorageCompanies();
+  
+        //    return result.ToList();
+        //}
 
         [HttpPost]
         [Route("newprice")]

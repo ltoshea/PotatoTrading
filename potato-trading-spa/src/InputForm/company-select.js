@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import createFilterOptions from "react-select-fast-filter-options";
 import Select from "react-select";
 
-class PotatoSelect extends React.Component {
+class CompanySelect extends React.Component {
 
     constructor(props) {
         super(props);
@@ -12,10 +12,10 @@ class PotatoSelect extends React.Component {
     }
 
     handleChange = value => {
-        this.props.onChange("variety", value);
+        this.props.onChange("company", value);
     };
     handleBlur = () => {
-        this.props.onBlur("variety", true);
+        this.props.onBlur("company", true);
     };
 
     render() {
@@ -28,7 +28,7 @@ class PotatoSelect extends React.Component {
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
                     value={this.props.value}
-                    placeholder="Choose a potato variety..."
+                    placeholder="Choose a company..."
                 />
                 {!!this.props.error && this.props.touched && (
                     <div style={{ color: "red", marginTop: ".5rem" }}>
@@ -39,4 +39,4 @@ class PotatoSelect extends React.Component {
         );
     }
 }
-export default PotatoSelect;
+export default CompanySelect;

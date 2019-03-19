@@ -5,25 +5,12 @@ import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup"
 import axios from 'axios';
-
-const styles = theme => ({
-    paper: {
-        marginTop: theme.spacing.unit * 8,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${theme
-            .spacing.unit * 5}px`
-    },
-    container: {
-        maxWidth: "200px"
-    }
-});
+import './form.css';
 
 const validationSchema = Yup.object({
     variety: Yup.string("Enter a potato variety")
         .required("Potato Variety is required"),
-    fee: Yup.number("Enter the storage fee")
+    fee: Yup.number("Enter the storage fee ($xx.xx)")
         .required("Storage Fee is required")
         .positive(),
 });
@@ -34,7 +21,9 @@ class InputForm extends Component {
         this.state = {
             variety: [],
             fee: [],
-            options: []
+            company: [],
+            options: [],
+            companyoptions: []
         };
     }
 
@@ -42,6 +31,9 @@ class InputForm extends Component {
         axios.get('https://localhost:44339/api/product/names')
             .then((response) => response.data.map(ele => { return { value: ele, label: ele } }))
             .then((response) => this.setState({ options: response }))
+        axios.get('https://localhost:44339/api/product/storage')
+            .then((response) => response.data.map(ele => { return { value: ele, label: ele } }))
+            .then((response) => this.setState({ companyoptions: response }))
     };
 
     render = () => {
@@ -51,12 +43,12 @@ class InputForm extends Component {
             <React.Fragment>
                 <div className={classes.container}>
                     <Paper elevation={1} className={classes.paper}>
-                        <h1>Form</h1>
+                        <h1>Potato Trader</h1>
                         <Formik
                             initialValues={{}}
                             validationSchema={validationSchema}
                             enableReinitialize={true}
-                            render={props => <Form {...props} options={this.state.options} />}
+                            render={props => <Form {...props} options={this.state.options} companyoptions={this.state.companyoptions} />}
                         />
                     </Paper>
                 </div>
@@ -65,4 +57,4 @@ class InputForm extends Component {
     }
 }
 
-export default withStyles(styles)(InputForm);
+export default InputForm;

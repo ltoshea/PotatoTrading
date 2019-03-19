@@ -6,17 +6,19 @@ import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
 import { Select } from "@material-ui/core";
 import PotatoSelect from './potato-select.js'
+import CompanySelect from "./company-select.js";
 
 export const Form = props => {
     const {
-        values: { variety, fee },
+        values: { variety, fee, company },
         errors,
         touched,
         handleChange,
         isValid,
         setFieldTouched,
         setFieldValue,
-        options
+        options,
+        companyoptions
     } = props;
 
     const change = (name, e) => {
@@ -29,7 +31,8 @@ export const Form = props => {
         <form
             onSubmit={() => {
                 console.log(props.values.variety.value);
-                console.log(props.values.variety.value);
+                console.log(props.values.company.value);
+                console.log(props.values.fee);
             }}
         >
             {/* <AutoSuggestPotato /> */}
@@ -53,6 +56,14 @@ export const Form = props => {
                 touched={touched.variety}
                 options={options}
             />
+            <CompanySelect
+                value={company}
+                onChange={setFieldValue}
+                onBlur={setFieldTouched}
+                error={errors.company}
+                touched={touched.company}
+                options={companyoptions}
+            />
             <TextField
                 id="fee"
                 name="fee"
@@ -61,9 +72,10 @@ export const Form = props => {
                 label="Storage Fee"
                 fullWidth
                 value={fee}
+                placeholder='00.00'
                 onChange={change.bind(null, "fee")}
-
             />
+
             <Button
                 type="submit"
                 fullWidth

@@ -40,16 +40,24 @@ namespace PotatoTradingWebApi.DataAccess
 
         }
 
-
-        public IEnumerable<StorageCompany> GetStorageCompanies()
+        public IEnumerable<String> GetStorageCompanies()
         {
             _logger.LogInformation("Fetching Storage Companies From Database");
             var query = from r in _db.StorageCompany
                 orderby r.Name
-                select r;
+                select r.Name;
             return query;
 
         }
+        //public IEnumerable<StorageCompany> GetStorageCompanies()
+        //{
+        //    _logger.LogInformation("Fetching Storage Companies From Database");
+        //    var query = from r in _db.StorageCompany
+        //        orderby r.Name
+        //        select r.Name;
+        //    return query;
+
+        //}
 
         public int SetNewPrice(FormInfo forminfo)
         {
