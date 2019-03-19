@@ -3,6 +3,8 @@
 ### Homepage
 https://potatotrading.azurewebsites.net/ <--- visit here 
 
+For input you can select from the dropdown or type and it auto suggests
+
 ### Back End Endpoints
 You can look at the output of some of the API endpoints directly here
 
@@ -15,7 +17,7 @@ https://potatotradingwebapi20190316095132.azurewebsites.net/api/product/storage
 Endpoints exist for saving data
 
 ### Overview
-The back end is built in C# use .Net Core 2.2 with a SQL Back end. 
+The back end is built in C# using .Net Core 2.2 with a SQL database.
 
 Code for the api is here: https://github.com/ltoshea/PotatoTrading/tree/master/webapp_api/PotatoTradingWebApi
 
