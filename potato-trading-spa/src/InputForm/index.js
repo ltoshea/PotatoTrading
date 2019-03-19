@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Formik } from "formik";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup"
@@ -28,10 +27,10 @@ class InputForm extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://localhost:44339/api/product/names')
+        axios.get('https://potatotradingwebapi20190316095132.azurewebsites.net/api/product/names')
             .then((response) => response.data.map(ele => { return { value: ele, label: ele } }))
             .then((response) => this.setState({ options: response }))
-        axios.get('https://localhost:44339/api/product/storage')
+        axios.get('https://potatotradingwebapi20190316095132.azurewebsites.net/api/product/storage')
             .then((response) => response.data.map(ele => { return { value: ele, label: ele } }))
             .then((response) => this.setState({ companyoptions: response }))
     };

@@ -1,10 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import AutoSuggestPotato from './autosuggest.js';
-import match from 'autosuggest-highlight/match';
-import parse from 'autosuggest-highlight/parse';
-import { Select } from "@material-ui/core";
 import PotatoSelect from './potato-select.js'
 import CompanySelect from "./company-select.js";
 import axios from "axios";
@@ -31,7 +27,8 @@ export const Form = props => {
     return (
         <form
             onSubmit={() => {
-                axios.post('https://localhost:44339/api/product/newprice', {
+                // axios.post('https://localhost:44339/api/product/newprice', {
+                axios.post('https://potatotradingwebapi20190316095132.azurewebsites.net/api/product/newprice', {
                     variety: props.values.variety.value,
                     storageCompany: props.values.company.value,
                     fee: props.values.fee

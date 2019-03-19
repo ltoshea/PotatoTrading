@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import createFilterOptions from "react-select-fast-filter-options";
 import Select from "react-select";
 
